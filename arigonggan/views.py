@@ -13,10 +13,6 @@ def index(request):
 def signup(requset):
     if requset.method == 'POST':
         userId=requset.POST['userId']
-
-        user = User(
-            userId=userId
-        )
         user.save
         print(requset.data)
     return HttpResponse("성공")
