@@ -19,5 +19,5 @@ from arigonggan import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('main/',include('arigonggan.urls')),
+    path('',include('arigonggan.urls')),
 ]

@@ -11,8 +11,4 @@ def index(request):
 
 @csrf_exempt
 def signup(requset):
-    if requset.method == 'POST':
-        userId=requset.POST['userId']
-        user.save
-        print(requset.data)
     return HttpResponse("성공")
