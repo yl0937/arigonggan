@@ -11,6 +11,8 @@ from selenium.webdriver.common.keys import Keys
 import os, time, traceback
 from arigonggan import models
 import bcrypt
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from config.settings import SECRET_KEY
 
 
@@ -31,3 +33,37 @@ def signup(requset):
         return JsonResponse({'message':'SUCCESS'},status=200)
     except:
         return JsonResponse({'message':'DBERR'},status=400)
+
+def check_login(userId,password):
+    base_path = os.path.dirname(os.path.abspath(__file__))
+    driver_path = os.path.join(base_path, 'chromedriver')
+    service = Service(driver_path)
+    opts = webdriver.ChromeOptions()
+    chrome_path = os.path.join(base_path, 'Chrome')
+    opts.add_argument('headless')
+    driver = webdriver.Chrome(service=service, options=opts)
+    try:
+        driver.get('https://cyber.anyang.ac.kr/Main.do?cmd=viewHome')
+        pop = driver.find_element(By.XPATH,'/html/body/div[4]/div[1]/button')
+        pop.click()
+
+        ul = driver.find_element(By.CLASS_NAME, 'user_box')
+        Id = ul.find_element(By.ID,'id')
+        pwd = ul.find_element(By.ID,'pw')
+
+        Id.send_keys(userId)
+        pwd.send_keys(password)
+        pwd.send_keys(Keys.RETURN)
+        try:
+            WebDriverWait(driver,3).until(EC.alert_is_present())
+            alert = driver.switch_to.alert
+            alert.accept()
+            return 0
+        except:
+            return 1
+    except Exception as e:
+        traceback.print_exc()
+        return 0
+    finally:
+        driver.close()
+        driver.quit()
