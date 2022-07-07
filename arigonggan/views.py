@@ -35,6 +35,7 @@ def delete(request):
     query = (id)
     try:
         id = models.delete(query)
+
         if id == 0:
             return JsonResponse({'message': 'Wrong reservation'}, status=300)
         else:

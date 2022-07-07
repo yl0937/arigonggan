@@ -1,6 +1,5 @@
 import pymysql
 
-conn = pymysql.connect(host='localhost', user='master', password='master', db='arigonggan', charset='utf8')
 
 from django.db import models
 
@@ -10,7 +9,11 @@ class Question(models.Model):
     content = models.TextField()
     create_date = models.DateTimeField()
 
+
+
 def usernser(infoQuery):
+    conn = pymysql.connect(host='localhost', user='master', password='master', db='goorm', charset='utf8')
+
     cur = conn.cursor()
     sql = "insert into User (userId) VALUES (%s)"
     res = cur.execute(sql,infoQuery)
@@ -20,6 +23,8 @@ def usernser(infoQuery):
     return res
 
 def login(infoQuery):
+    conn = pymysql.connect(host='localhost', user='master', password='master', db='goorm', charset='utf8')
+
     cur = conn.cursor()
     sql = "select * from User where userId = %s"
     res = cur.execute(sql,infoQuery)
@@ -29,8 +34,10 @@ def login(infoQuery):
     return res
 
 def delete(infoQuery):
+    conn = pymysql.connect(host='localhost', user='master', password='master', db='goorm', charset='utf8')
+
     cur = conn.cursor()
-    sql = "update Reservation set status = 'deactivate' where id = %s"
+    sql = "update Reservation set status = 'deactivate' where id = %s and status = 'activate'"
     sta = cur.execute(sql, infoQuery)
     conn.commit()
     conn.close()
