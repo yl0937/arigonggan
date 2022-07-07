@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
 <<<<<<< HEAD
+<<<<<<< HEAD
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.8 (py38)" project-jdk-type="Python SDK" />
   <component name="PyCharmProfessionalAdvertiser">
     <option name="shown" value="true" />
@@ -8,4 +9,10 @@
 =======
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.10 (arigonggan)" project-jdk-type="Python SDK" />
 >>>>>>> yonghwan
+=======
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.9 (koreait)" project-jdk-type="Python SDK" />
+  <component name="PyCharmProfessionalAdvertiser">
+    <option name="shown" value="true" />
+  </component>
+>>>>>>> d7620c657a6246d7e56503a812eb90dc0a0ddee8
 </project>

@@ -1,5 +1,9 @@
 import pymysql
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> d7620c657a6246d7e56503a812eb90dc0a0ddee8
 
 from django.db import models
 
@@ -13,7 +17,10 @@ class Question(models.Model):
 
 def usernser(infoQuery):
     conn = pymysql.connect(host='localhost', user='master', password='master', db='goorm', charset='utf8')
+<<<<<<< HEAD
 
+=======
+>>>>>>> d7620c657a6246d7e56503a812eb90dc0a0ddee8
     cur = conn.cursor()
     sql = "insert into User (userId) VALUES (%s)"
     res = cur.execute(sql,infoQuery)
@@ -24,7 +31,10 @@ def usernser(infoQuery):
 
 def login(infoQuery):
     conn = pymysql.connect(host='localhost', user='master', password='master', db='goorm', charset='utf8')
+<<<<<<< HEAD
 
+=======
+>>>>>>> d7620c657a6246d7e56503a812eb90dc0a0ddee8
     cur = conn.cursor()
     sql = "select * from User where userId = %s"
     res = cur.execute(sql,infoQuery)
@@ -35,7 +45,10 @@ def login(infoQuery):
 
 def delete(infoQuery):
     conn = pymysql.connect(host='localhost', user='master', password='master', db='goorm', charset='utf8')
+<<<<<<< HEAD
 
+=======
+>>>>>>> d7620c657a6246d7e56503a812eb90dc0a0ddee8
     cur = conn.cursor()
     sql = "update Reservation set status = 'deactivate' where id = %s and status = 'activate'"
     sta = cur.execute(sql, infoQuery)
